@@ -12,6 +12,7 @@ return {
 				"tailwindcss-language-server",
 				"typescript-language-server",
 				"css-lsp",
+				"svelte-language-server",
 			})
 		end,
 	},
@@ -58,6 +59,12 @@ return {
 							},
 						},
 					},
+					filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte" },
+				},
+				svelte = {
+					root_dir = function(...)
+						return require("lspconfig.util").root_pattern(".git")(...)
+					end,
 				},
 				html = {},
 				yamlls = {

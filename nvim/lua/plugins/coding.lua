@@ -144,4 +144,12 @@ return {
 		"wakatime/vim-wakatime",
 		lazy = false,
 	},
+	{
+		"heavenshell/vim-jsdoc",
+		run = "make install",
+		config = function()
+			vim.g.jsdoc_formatter = "tsd"
+			vim.api.nvim_set_keymap("n", "<leader>jsd", ":JsDoc<CR>", { noremap = true, silent = true })
+		end,
+	},
 }

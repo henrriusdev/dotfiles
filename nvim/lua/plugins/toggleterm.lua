@@ -40,27 +40,24 @@ return {
 	},
 	{
 		"folke/which-key.nvim",
-		config = function()
-			require("which-key").setup({})
-			local wk = require("which-key")
-			--		wk.register({
-			--		f = {
-			--		t = {
-			--		name = "Terminal",
-			--	h = { "<cmd>ToggleTerm direction=horizontal<CR>", "Horizontal Terminal" },
-			--v = { "<cmd>ToggleTerm direction=vertical<CR>", "Vertical Terminal" },
-			--						t = { "<cmd>ToggleTerm direction=tab<CR>", "Tab Terminal" },
-			--					f = { "<cmd>ToggleTerm direction=float<CR>", "Floating Terminal" },
-			--			},
-			--	},
-			--			}, { prefix = "<leader>" })
-		end,
 		keys = {
 			{ "<leader>ft", group = "Terminal", desc = "Toggle Terminal" },
 			{ "<leader>ftt", "<cmd>ToggleTerm direction=tab<CR>", desc = "Tab Terminal" },
 			{ "<leader>ftv", "<cmd>ToggleTerm direction=vertical<CR>", desc = "Vertical Terminal" },
 			{ "<leader>fth", "<cmd>ToggleTerm direction=horizontal<CR>", desc = "Horizontal Terminal" },
 			{ "<leader>ftf", "<cmd>ToggleTerm direction=float<CR>", desc = "Floating Terminal" },
+			-- create a tab group for nvim
+			{ "<leader>t", group = "Tabs", desc = "Tab Navigation" },
+			{ "<leader>tc", "<cmd>tabclose<CR>", desc = "Close Tab" },
+			{ "<leader>to", "<cmd>tabonly<CR>", desc = "Close all but maintains open the current tab" },
+			{ "<leader>tt", "<cmd>tabnew<CR>", desc = "New Tab" },
+			{ "<leader>tp", "<cmd>tabprevious<CR>", desc = "Previous Tab" },
+			{ "<leader>tl", "<cmd>tabnext<CR>", desc = "Next Tab" },
+			-- save file actions
+			{ "<leader>d", group = "File", desc = "Save File" },
+			{ "<leader>df", "<cmd>w<CR>", desc = "Save file" },
+			{ "<leader>da", "<cmd>wa<CR>", desc = "Save all files" },
+			{ "<leader>ds", "<cmd>wq<CR>", desc = "Save and close file" },
 		},
 	},
 }

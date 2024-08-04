@@ -12,7 +12,20 @@ declare -A FILES_TO_COPY=(
 for FILE in "${!FILES_TO_COPY[@]}"; do
   TARGET="$HOME/$FILE"
   SOURCE="${FILES_TO_COPY[$FILE]}"
-  mkdir -p "$(dirname "$TARGET")"
-  cp -r "$SOURCE" "$TARGET"
-done
 
+  if [ -d "$SOURCE" ]; then
+    # Si es un directorio, copia todo el contenido recursivamente
+    echo "Copiando contenido del directorio $SOURCE a $TARGET"
+    rsync -avh --delete "$SOURCE/" "$TARGET/"
+  else
+    # Si es un archivo, copia el archivo
+    echo "Copiando archivo $SOURCE a $TARGET"
+    cp "$SOURCE" "$TARGET"
+  fi
+
+  if [ $? -eq 0 ]; then
+    echo "Copiado exitosamente: $SOURCE a $TARGET"
+  else
+    echo "Error al copiar: $SOURCE a $TARGET"
+  fi
+done
