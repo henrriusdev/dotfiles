@@ -140,11 +140,6 @@ return {
 		end,
 	},
 	{
-		-- add vim wakatime
-		"wakatime/vim-wakatime",
-		lazy = false,
-	},
-	{
 		"heavenshell/vim-jsdoc",
 		run = "make install",
 		config = function()
