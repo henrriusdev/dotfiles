@@ -25,12 +25,7 @@ require("lazy").setup({
 				},
 			},
 		},
-		{
-			"folke/tokyonight.nvim",
-			config = function()
-				require("plugins.colorscheme") -- Aquí carga tu configuración personalizada
-			end,
-		},
+		{ "rose-pine/neovim" },
 		-- import any extras modules here
 		{ import = "lazyvim.plugins.extras.linting.eslint" },
 		{ import = "lazyvim.plugins.extras.formatting.prettier" },
