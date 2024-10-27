@@ -95,7 +95,7 @@ return {
 		opts = {
 			options = {
 				-- globalstatus = false,
-				theme = "tokyonight-night",
+				theme = "rose-pine",
 			},
 		},
 	},
