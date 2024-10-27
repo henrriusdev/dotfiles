@@ -1,3 +1,26 @@
+local Terminal = require("toggleterm.terminal").Terminal
+
+local tab_term = Terminal:new({ cmd = "bash", direction = "tab", count = 1 })
+local vertical_term = Terminal:new({ cmd = "bash", direction = "vertical", count = 2 })
+local horizontal_term = Terminal:new({ cmd = "bash", direction = "horizontal", count = 3 })
+local float_term = Terminal:new({ cmd = "bash", direction = "float", count = 4 })
+
+function _G.toggle_tab_term()
+	tab_term:toggle()
+end
+
+function _G.toggle_vertical_term()
+	vertical_term:toggle()
+end
+
+function _G.toggle_horizontal_term()
+	horizontal_term:toggle()
+end
+
+function _G.toggle_float_term()
+	float_term:toggle()
+end
+
 return {
 	{
 		"akinsho/toggleterm.nvim",
@@ -41,11 +64,10 @@ return {
 	{
 		"folke/which-key.nvim",
 		keys = {
-			{ "<leader>ft", group = "Terminal", desc = "Toggle Terminal" },
-			{ "<leader>ftt", "<cmd>ToggleTerm direction=tab<CR>", desc = "Tab Terminal" },
-			{ "<leader>ftv", "<cmd>ToggleTerm direction=vertical<CR>", desc = "Vertical Terminal" },
-			{ "<leader>fth", "<cmd>ToggleTerm direction=horizontal<CR>", desc = "Horizontal Terminal" },
-			{ "<leader>ftf", "<cmd>ToggleTerm direction=float<CR>", desc = "Floating Terminal" },
+			{ "<leader>nt", "<cmd>lua toggle_tab_term()<CR>", desc = "Tab Terminal" },
+			{ "<leader>nv", "<cmd>lua toggle_vertical_term()<CR>", desc = "Vertical Terminal" },
+			{ "<leader>nh", "<cmd>lua toggle_horizontal_term()<CR>", desc = "Horizontal Terminal" },
+			{ "<leader>nf", "<cmd>lua toggle_float_term()<CR>", desc = "Floating Terminal" },
 			-- create a tab group for nvim
 			{ "<leader>t", group = "Tabs", desc = "Tab Navigation" },
 			{ "<leader>tc", "<cmd>tabclose<CR>", desc = "Close Tab" },
