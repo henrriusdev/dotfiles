@@ -26,6 +26,7 @@ require("lazy").setup({
 			},
 		},
 		{ "rose-pine/neovim" },
+		{ "wakatime/vim-wakatime" },
 		-- import any extras modules here
 		{ import = "lazyvim.plugins.extras.linting.eslint" },
 		{ import = "lazyvim.plugins.extras.formatting.prettier" },

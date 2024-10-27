@@ -1,26 +1,3 @@
-local Terminal = require("toggleterm.terminal").Terminal
-
-local tab_term = Terminal:new({ cmd = "bash", direction = "tab", count = 1 })
-local vertical_term = Terminal:new({ cmd = "bash", direction = "vertical", count = 2 })
-local horizontal_term = Terminal:new({ cmd = "bash", direction = "horizontal", count = 3 })
-local float_term = Terminal:new({ cmd = "bash", direction = "float", count = 4 })
-
-function _G.toggle_tab_term()
-	tab_term:toggle()
-end
-
-function _G.toggle_vertical_term()
-	vertical_term:toggle()
-end
-
-function _G.toggle_horizontal_term()
-	horizontal_term:toggle()
-end
-
-function _G.toggle_float_term()
-	float_term:toggle()
-end
-
 return {
 	{
 		"akinsho/toggleterm.nvim",
@@ -81,5 +58,18 @@ return {
 			{ "<leader>da", "<cmd>wa<CR>", desc = "Save all files" },
 			{ "<leader>ds", "<cmd>wq<CR>", desc = "Save and close file" },
 		},
+		config = function()
+			require("which-key").setup({
+				plugins = {
+					presets = {
+						operators = false, -- desactiva si no lo necesitas
+						motions = false, -- desactiva si no lo necesitas
+					},
+				},
+				layout = {
+					height = { min = 3, max = 25 }, -- Muestra un mínimo de 3 filas
+				},
+			})
+		end,
 	},
 }
